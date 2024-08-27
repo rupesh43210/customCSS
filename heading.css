@@ -1,0 +1,59 @@
+h1.with-breadcrumbs {
+  position: relative;
+  color: #ffffff;
+  padding: 15px 20px;
+  border-radius: 8px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  overflow: hidden;
+  z-index: 1;
+}
+
+h1.with-breadcrumbs::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, #00ff87, #60efff);
+  z-index: -1;
+  animation: gradientSlide 3s ease-in-out forwards;
+}
+
+@keyframes gradientSlide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+h1.with-breadcrumbs::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.3),
+    0 15px 45px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  z-index: -2;
+  animation: shadowGrow 1.5s ease-out forwards;
+}
+
+@keyframes shadowGrow {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
